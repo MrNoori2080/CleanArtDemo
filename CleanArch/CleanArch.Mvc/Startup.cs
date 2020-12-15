@@ -1,4 +1,5 @@
 using CleanArch.Infr.Data.Context;
+using CleanArch.Infra.IoC;
 using CleanArch.Mvc.Data;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -40,6 +41,8 @@ namespace CleanArch.Mvc
             {
                 option.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
+
+            DependencyContainer.RegisterServices(services);
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
